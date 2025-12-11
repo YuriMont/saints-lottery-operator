@@ -2,7 +2,7 @@ import Sorteador from "./components/Sorteador";
 
 function App() {
   return (
-    <div className="">
+    <div className="font-roboto">
       <Sorteador />
     </div>
   );

@@ -73,7 +73,11 @@ export default function Sorteador() {
   }, [isFinalVisible]);
 
   return (
-    <div className="h-screen flex flex-col items-center justify-center bg-gray-100 p-6 gap-6">
+    <div
+      className="
+    h-screen flex flex-col items-center justify-center p-6 gap-6
+  "
+    >
       <style>
         {`
           .final-zoom {
@@ -86,53 +90,63 @@ export default function Sorteador() {
         `}
       </style>
 
-      <div className="text-center">
-        <div className="mt-4 flex flex-col items-center">
-          {display ? (
-            <>
-              <img
-                key={display.url_image}
-                src={display.url_image}
-                alt={display.name}
-                onLoad={() => setVisibleIndex(displayIndex)}
-                className={`
-                  w-64 h-96 object-cover rounded-xl shadow mb-3 transition-all
+      <div
+        className="
+            absolute inset-0 -z-10 
+            bg-[url('src/assets/arte.png')] bg-cover bg-center bg-no-repeat
+            opacity-40
+            md:bg-primary md:bg-none
+        "
+      />
+
+      <div className="z-10">
+        <div className="text-center">
+          <div className="mt-4 flex flex-col items-center">
+            {display ? (
+              <>
+                <img
+                  key={display.url_image}
+                  src={display.url_image}
+                  alt={display.name}
+                  onLoad={() => setVisibleIndex(displayIndex)}
+                  className={`
+                  w-64 h-96 object-cover rounded-xl shadow mb-3 bg-primary transition-all border border-primary
                   ${isFinalVisible ? "final-zoom" : ""}
                 `}
-              />
+                />
 
-              {visibleIndex !== null && (
-                <div
-                  className={`
-                    text-xl font-semibold transition-opacity
+                {visibleIndex !== null && (
+                  <div
+                    className={`
+                    text-3xl font-bold transition-opacity text-secondary 
                     ${isFinalVisible ? "opacity-100" : "opacity-90"}
                   `}
-                >
-                  {santosData[visibleIndex].name}
-                </div>
-              )}
-            </>
-          ) : (
-            <div>
-              <img
-                src={santosData[0].url_image}
-                alt={santosData[0].name}
-                className={`
-                  w-64 h-96 object-cover rounded-xl shadow mb-3 transition-all
+                  >
+                    {santosData[visibleIndex].name}
+                  </div>
+                )}
+              </>
+            ) : (
+              <div>
+                <img
+                  src={santosData[0].url_image}
+                  alt={santosData[0].name}
+                  className={`
+                  w-64 h-96 object-cover rounded-xl shadow mb-3 transition-all border border-primary
                 `}
-              />
-              <p className="text-gray-500 text-sm">Clique em "Sortear"</p>
-            </div>
-          )}
-        </div>
+                />
+              </div>
+            )}
+          </div>
 
-        <button
-          onClick={startRoll}
-          disabled={isRolling}
-          className="mt-4 px-6 py-3 rounded-xl w-64 shadow font-semibold bg-purple-600 text-white disabled:opacity-50"
-        >
-          {isRolling ? "Sorteando..." : "Sortear"}
-        </button>
+          <button
+            onClick={startRoll}
+            disabled={isRolling}
+            className="mt-4 px-6 py-3 rounded-xl w-64 shadow-2xl border border-primary font-semibold uppercase bg-secondary text-white disabled:opacity-50"
+          >
+            {isRolling ? "Sorteando..." : "Sortear"}
+          </button>
+        </div>
       </div>
     </div>
   );
