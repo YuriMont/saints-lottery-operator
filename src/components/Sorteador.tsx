@@ -73,11 +73,7 @@ export default function Sorteador() {
   }, [isFinalVisible]);
 
   return (
-    <div
-      className="
-    h-screen flex flex-col items-center justify-center p-6 gap-6
-  "
-    >
+    <div className="h-dvh flex flex-col items-center justify-center p-6 gap-6 relative overflow-hidden">
       <style>
         {`
           .final-zoom {
