@@ -93,7 +93,7 @@ export default function Sorteador() {
       <div
         className="
             absolute inset-0 -z-10 
-            bg-[url('/arte.png')] bg-cover bg-center bg-no-repeat
+            bg-[url('/arte.webp')] bg-cover bg-center bg-no-repeat
             opacity-40
             md:bg-primary md:bg-none
         "
